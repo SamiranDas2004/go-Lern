@@ -14,6 +14,7 @@ type course struct {
 func main() {
 	fmt.Println("this is  json video")
 	EncodeJson()
+	DecodeJson()
 }
 
 func EncodeJson() {
@@ -49,6 +50,11 @@ func DecodeJson() {
 
 	if res {
 		fmt.Println("json")
-		json.Unmarshal(jsonData, &Course)
+
 	}
+	err := json.Unmarshal(jsonData, &Course)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(Course)
 }
